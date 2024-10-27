@@ -4,8 +4,10 @@ from bs4 import BeautifulSoup
 from openai import OpenAI
 import os
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "https://scrapertest-beige.vercel.app"}})
 openai_api_key = os.getenv('OPENAI_API_KEY')
 client = OpenAI(api_key=openai_api_key)
 
